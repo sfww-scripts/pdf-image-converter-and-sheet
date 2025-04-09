@@ -1,0 +1,24 @@
+{
+  "name": "steadfast-pdf-to-sheet",
+  "version": "1.0.0",
+  "description": "Converts PDFs to images and populates Google Sheets with extracted data",
+  "main": "pdf-to-sheet-script.js",
+  "scripts": {
+    "start": "node pdf-to-sheet-script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steadfast Worldwide, Inc.",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/secret-manager": "^4.2.2",
+    "@google-cloud/vision": "^3.1.3",
+    "axios": "^1.6.0",
+    "cloudconvert": "^2.3.4",
+    "googleapis": "^126.0.1",
+    "yargs": "^17.7.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
