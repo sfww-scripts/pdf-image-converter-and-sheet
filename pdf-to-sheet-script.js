@@ -28,7 +28,10 @@ const CORE_API_KEY_SECRET = 'SFWW-Core-Primary-API-Key';
 /**
  * Main function to run the entire process
  */
-async function main() {
+async function main(sourceFolderId = SOURCE_FOLDER_ID, 
+    imageFolderId = IMAGE_FOLDER_ID, 
+    spreadsheetId = TARGET_SPREADSHEET_ID, 
+    sheetTabIndex = TARGET_SHEET_TAB_INDEX) {
   try {
     console.log("=== Starting PDF to Image Conversion and Sheet Population ===");
     
@@ -1017,14 +1020,9 @@ async function runCommand() {
       .alias('help', 'h')
       .argv;
     
-    // Override global constants with command line arguments
-    SOURCE_FOLDER_ID = argv.source;
-    IMAGE_FOLDER_ID = argv.images;
-    TARGET_SPREADSHEET_ID = argv.spreadsheet;
-    TARGET_SHEET_TAB_INDEX = argv.tab;
+// Run the main function with command line arguments
+const result = await main(argv.source, argv.images, argv.spreadsheet, argv.tab);
     
-    // Run the main function
-    const result = await main();
     console.log(JSON.stringify(result, null, 2));
     
     process.exit(0);
